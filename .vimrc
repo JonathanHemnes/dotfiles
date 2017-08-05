@@ -8,6 +8,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe'
 Plug '/vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
 
 " Initialize plugin system
 call plug#end()
