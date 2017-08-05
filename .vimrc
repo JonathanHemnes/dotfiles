@@ -2,12 +2,12 @@
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
-Plug 'editorconfig/editorconfig-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Valloric/YouCompleteMe'
 Plug '/vim-syntastic/syntastic'
+Plug 'scrooloose/nerdtree'
 
 " Initialize plugin system
 call plug#end()
