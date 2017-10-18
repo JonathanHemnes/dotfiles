@@ -1,4 +1,3 @@
-
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -9,20 +8,24 @@ Plug 'Valloric/YouCompleteMe'
 Plug '/vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set completeopt-=preview
 
 map <c-f> :call JsBeautify()<cr>
 map <C-n> :NERDTreeToggle<CR>
-
-set number
-set wildignore+=**/node_modules
-set noswapfile 
-
+map <C-p> :Files<CR>
+map <C-J> <C-W>j<C-W>
+map <C-K> <C-W>k<C-W>
+map <C-H> <C-W>h<C-W>
+map <C-L> <C-W>l<C-W>
 let g:syntastic_javascript_eslint_exec='$(npm bin)/eslint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -33,10 +36,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-
-let g:ctrlp_custom_ignore = 'node_modules'
-
+set number
+set noswapfile
 
 :filetype indent on
 :set filetype=html
 :set smartindent
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
