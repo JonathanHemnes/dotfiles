@@ -25,10 +25,10 @@ set completeopt-=preview
 map <c-f> :call JsBeautify()<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
-map <C-J> <C-W>j<C-W>
-map <C-K> <C-W>k<C-W>
-map <C-H> <C-W>h<C-W>
-map <C-L> <C-W>l<C-W>
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
 let g:syntastic_javascript_eslint_exec='$(npm bin)/eslint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
