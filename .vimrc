@@ -1,3 +1,6 @@
+//brew install the_silver_searcher
+//brew install fzf
+
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -46,3 +49,4 @@ set noswapfile
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
