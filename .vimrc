@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'jiangmiao/auto-pairs'
+Plug 'janko-m/vim-test'
 
 " Initialize plugin system
 call plug#end()
@@ -29,6 +30,9 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-H> <C-W>h<C-W>_
 map <C-L> <C-W>l<C-W>_
+
+nmap <silent> <leader>t :TestNearest<CR>
+
 let g:syntastic_javascript_eslint_exec='$(npm bin)/eslint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
