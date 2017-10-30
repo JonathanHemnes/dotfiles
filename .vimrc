@@ -18,6 +18,7 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sensible'
 
 " Initialize plugin system
 call plug#end()
