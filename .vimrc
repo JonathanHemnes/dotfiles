@@ -20,6 +20,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
+Plug 'tomlion/vim-solidity'
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
@@ -37,13 +39,20 @@ au Filetype ruby set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 map <c-f> :call JsBeautify()<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
+map <C-o> :Buffers<CR>
 map <C-t> :terminal<CR>
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-H> <C-W>h<C-W>_
 map <C-L> <C-W>l<C-W>_
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
+nmap <silent><leader>ft <Plug>RunFileTest
+nmap <silent><leader>nt <Plug>RunNearestTest
+nmap <silent><leader>lt <Plug>RunLastTest
+nmap <silent><leader>ct <Plug>CloseTestBuffer
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:syntastic_javascript_eslint_exec='$(npm bin)/eslint'
 set statusline+=%#warningmsg#
@@ -86,6 +95,9 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+" ctag mapping
+nnoremap <leader>. :CtrlPTag<cr>
 
 " for vim-js to allow on regular .js files
 let g:jsx_ext_required = 0
