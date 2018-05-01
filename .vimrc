@@ -1,3 +1,6 @@
+//brew install the_silver_searcher
+//brew install fzf
+
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -17,11 +20,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
-Plug 'tomlion/vim-solidity'
-Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
@@ -40,7 +40,6 @@ map <c-f> :call JsBeautify()<cr>
 map <C-n> :NERDTreeToggle<CR>
 map <C-p> :Files<CR>
 map <C-o> :Buffers<CR>
-map <C-t> :terminal<CR>
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-H> <C-W>h<C-W>_
@@ -132,3 +131,5 @@ function! RunTest(test)
         :exe wnr . "wincmd w"
     endif
 endfunction
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
