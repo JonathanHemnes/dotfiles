@@ -1,35 +1,52 @@
-//brew install the_silver_searcher
-//brew install fzf
-
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'cespare/vim-toml'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'janko-m/vim-test'
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-highlightedyank'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'mhinz/vim-grepper'
+Plug 'mileszs/ack.vim'
+Plug 'morhetz/gruvbox'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Valloric/YouCompleteMe'
-Plug 'tpope/vim-surround'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'mileszs/ack.vim'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'jiangmiao/auto-pairs'
-Plug 'janko-m/vim-test'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dispatch'
-Plug 'pangloss/vim-javascript'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'w0rp/ale'
+
+" hack to make the cursor move to the right whne using autopairs
+autocmd VimEnter,BufEnter,BufWinEnter * silent! iunmap <buffer> <M-">
 
 " Initialize plugin system
 call plug#end()
 set nocompatible      " We're running Vim, not Vi!
+
+set background=dark
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
+
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
+
+autocmd BufWritePre * :%s/\s\+$//e
+
 set completeopt-=preview
 au Filetype javascript set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 au Filetype scss set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
@@ -73,6 +90,8 @@ set noswapfile
 :filetype indent on
 :set filetype=html
 :set smartindent
+:set smartcase
+:set ignorecase
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -94,6 +113,8 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+nnoremap <leader>gg :Grepper<CR>
 
 " ctag mapping
 nnoremap <leader>. :CtrlPTag<cr>
