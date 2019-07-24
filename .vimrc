@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Make sure you use single quotes
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -6,10 +6,13 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'cespare/vim-toml'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'machakann/vim-highlightedyank'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mileszs/ack.vim'
 Plug 'morhetz/gruvbox'
@@ -22,7 +25,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
@@ -36,9 +38,15 @@ autocmd VimEnter,BufEnter,BufWinEnter * silent! iunmap <buffer> <M-">
 call plug#end()
 set nocompatible      " We're running Vim, not Vi!
 
+set encoding=utf8
+set guifont=Hack_Nerd_Font:h11
+
 set background=dark
 colorscheme gruvbox
 let g:airline_theme = 'gruvbox'
+
+let g:user_emmet_leader_key=','
+let g:ale_python_yapf_use_global=1
 
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
@@ -52,6 +60,8 @@ au Filetype javascript set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smartt
 au Filetype scss set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 au Filetype html set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 au Filetype ruby set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+au Filetype python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smarttab autoindent
+let python_highlight_all = 1
 
 map <c-f> :call JsBeautify()<cr>
 map <C-n> :NERDTreeToggle<CR>
