@@ -1,0 +1,8 @@
+{
+    "python.linting.pylintEnabled": false,
+    "coc.preferences.formatOnTypeFiletypes": [
+        "typescript",
+        "typescript.tsx",
+        "typescriptreact"
+    ]
+}
